@@ -4,5 +4,4 @@ Data Structures
 
 Queues , Stacks and Deques
 
-
-'' created by using list '' 
+created by using a list '' 
