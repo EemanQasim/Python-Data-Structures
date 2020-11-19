@@ -1,5 +1,6 @@
 
-'''Creating a Deque Class in Python by using a class'''
+
+'''Palindrome Checker'''
 
 
 class Deque:
@@ -7,15 +8,13 @@ class Deque:
     def __init__(self):
         self.items = []
 
-    def add_front(self , item):
+    def add_front(self, item):
         '''Left side as the front of the list zero index '''
-        self.items.insert(0,item)
-
+        self.items.insert(0, item)
 
     def add_rear(self, item):
         '''the right side of the list -1 index'''
         self.items.append(item)
-
 
     def remove_front(self):
         '''Removes Value found at index 0'''
@@ -52,20 +51,21 @@ class Deque:
         return self.items == []
 
 
-my_D = Deque()
+def check_palindrome(input_str):
+        my_d = Deque()
+        for char in input_str:
+            my_d.add_rear(char)
 
-my_D.add_front('Front')
-my_D.add_rear('Rear')
-print(my_D.items)
-my_D.add_front('Another Front')
-print(my_D.items)
+        while my_d.size() >=2:
+            front_item = my_d.remove_front()
+            rear_item = my_d.remove_rear()
 
-# my_D.remove_front()
-# print(my_D.items)
-# my_D.remove_rear()
-# print(my_D.items)
+            if front_item != rear_item:
+                return False 
+        return True
 
-print(my_D.peek_front())
-print(my_D.peek_rear())
-print(my_D.size())
-print(my_D.is_empty())
+
+print(check_palindrome('racecar'))
+print(check_palindrome('oranges'))
+
+
